@@ -15,8 +15,7 @@
 
 <br />
 
-> **Live Demo:** [https://nova-backend-evhs.onrender.com](https://nova-backend-evhs.onrender.com) (Backend API)  
-> *Note: Frontend deployment URL goes here*
+> **Live Demo:** [https://talibuilds-nova.vercel.app/](https://talibuilds-nova.vercel.app/) 
 
 ---
 
