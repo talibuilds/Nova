@@ -49,7 +49,7 @@ const Header = ({ collapsed, title, subtitle, onMobileMenuToggle }) => {
   return (
     <header className={`header ${collapsed ? 'sidebar-collapsed' : ''}`}>
       <div className="header-left">
-        <button className="header-icon-btn" onClick={onMobileMenuToggle} style={{ display: 'none' }} id="mobile-menu-btn">
+        <button className="header-icon-btn mobile-only" onClick={onMobileMenuToggle} id="mobile-menu-btn">
           <HiOutlineMenu />
         </button>
         <div className="header-title">

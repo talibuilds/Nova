@@ -1985,7 +1985,26 @@ ul, ol {
   }
 }
 
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .mobile-only {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-modal-backdrop);
+    animation: fadeIn var(--transition-fast);
+  }
+
   .sidebar {
     transform: translateX(-100%);
     z-index: var(--z-modal);

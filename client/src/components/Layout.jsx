@@ -5,12 +5,27 @@ import Header from './Header';
 
 const Layout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="app-layout">
-      <Sidebar collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
+      {mobileMenuOpen && (
+        <div 
+          className="sidebar-overlay" 
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      <Sidebar 
+        collapsed={collapsed} 
+        onToggle={() => setCollapsed(!collapsed)} 
+        mobileOpen={mobileMenuOpen}
+        onMobileClose={() => setMobileMenuOpen(false)}
+      />
       <div className={`main-wrapper ${collapsed ? 'sidebar-collapsed' : ''}`}>
-        <Header collapsed={collapsed} />
+        <Header 
+          collapsed={collapsed} 
+          onMobileMenuToggle={() => setMobileMenuOpen(true)}
+        />
         <main className="main-content fade-in">
           <Outlet />
         </main>

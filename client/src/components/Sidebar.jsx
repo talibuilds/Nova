@@ -19,7 +19,7 @@ const navItems = [
   { path: '/settings', icon: HiOutlineCog, label: 'Settings' },
 ];
 
-const Sidebar = ({ collapsed, onToggle }) => {
+const Sidebar = ({ collapsed, onToggle, mobileOpen, onMobileClose }) => {
   const { user, logout } = useAuth();
   const location = useLocation();
 
@@ -29,7 +29,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
   };
 
   return (
-    <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+    <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-logo">
         <img src="/logo.png" alt="Nova" style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', objectFit: 'contain' }} />
         <span className="sidebar-logo-text">NOVA</span>
@@ -45,6 +45,11 @@ const Sidebar = ({ collapsed, onToggle }) => {
               `sidebar-nav-item ${isActive ? 'active' : ''}`
             }
             end={item.path === '/'}
+            onClick={() => {
+              if (window.innerWidth <= 768 && onMobileClose) {
+                onMobileClose();
+              }
+            }}
           >
             <span className="sidebar-nav-icon">
               <item.icon />
