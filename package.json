@@ -1,0 +1,14 @@
+{
+  "name": "nova",
+  "version": "1.0.0",
+  "description": "NOVA — Team Productivity Platform. Plan. Collaborate. Deliver.",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "install-all": "cd server && npm install && cd ../client && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
